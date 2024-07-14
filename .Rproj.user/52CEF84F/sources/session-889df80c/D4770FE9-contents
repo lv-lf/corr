@@ -1,0 +1,54 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# corr
+
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/lv-lf/corr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/lv-lf/corr/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/lv-lf/corr/branch/main/graph/badge.svg)](https://app.codecov.io/gh/lv-lf/corr?branch=main)
+<!-- badges: end -->
+
+The goal of corr is to compute the correlation of x and y if these are vectors.
+
+## Installation
+
+You can install the development version of corr like so:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("lv-lf/corr")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(corr)
+x <- 1:5
+y <- c(3, 5, 8, 9, 13)
+corr1(x, y)
+corr2(x, y)
+cor(x, y)
+plot(x, y)
+```
+
+```{r}
+data(dat)
+dim(dat)
+path = system.file("extdata","example.csv",package="corr")
+read.csv(path,header=T)
+```
+

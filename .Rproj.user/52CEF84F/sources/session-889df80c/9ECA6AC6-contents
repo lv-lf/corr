@@ -1,0 +1,86 @@
+# 1.创建Package
+
+# 2.编写函数及相关说明
+devtools::load_all()
+corr1(1:10,2:11)
+corr2(1:10,2:11)
+
+# 3.修改DESCRIPTION文件
+usethis::use_mit_license()
+usethis::use_package("stats",type = "Imports",min_version = "1.0")
+
+# 4.生成示例数据并保存，添加说明文件
+dat <- mtcars
+usethis::use_data(dat)
+dir.create("inst/extdata",recursive = T)
+write.csv(dat,file="inst/extdata/example.csv")
+
+# 5.生成man文件夹和NAMESPACE文件
+devtools::document()
+
+# 6.检查
+devtools::check()
+
+# 7.代码整理及美化
+styler::style_pkg()            #对整个包进行代码美化
+lintr::lint_package()          #代码规范性检查
+
+# 8.测试,略
+usethis::use_testthat()        #设定环境
+library(testthat)
+usethis::use_test("corr.R")    #快速构建测试文件
+devtools::test()
+devtools::test_coverage(".")
+
+# 9.创建README文件并修改
+#install.package("rmarkdown")
+usethis::use_readme_rmd()
+
+# 10.制作包的说明书
+#install.package("pkgdown")
+usethis::use_pkgdown()         #初始化
+#先安装包
+pkgdown::build_site()
+
+# 11.自动检查
+usethis::use_tidy_github_actions()
+
+# 12.上传到Github上
+
+# 13.打包查看
+devtools::build("D:/ProgramData/MyRPackage/corr")
+
+library(corr)
+help(corr)
+data(dat)
+?dat
+dim(dat)
+path = system.file("extdata","example.csv",package="corr")
+read.csv(path,header=T)
+
+#------------------------------------------------
+usethis::create_package(path="D:/ProgramData/MyRPackage/rPackageTutorial")
+
+renv::init()
+renv::snapshot()
+
+usethis::use_package(package = "renv", type = "Suggests")
+
+usethis::use_readme_rmd()
+
+file.create("R/add.R")
+add<-function(a,b) {
+  return(a+b)
+}
+
+devtools::document()
+
+styler::style_pkg()
+lintr::lint_package()
+
+usethis::use_github_action("lint")
+
+usethis::use_testthat()
+usethis::use_test("add.R")
+
+
