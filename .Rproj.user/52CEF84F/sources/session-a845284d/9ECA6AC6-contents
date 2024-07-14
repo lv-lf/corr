@@ -47,9 +47,8 @@ usethis::use_tidy_github_actions()
 
 # 12.上传到Github上
 
-# 13.打包查看
+# 13.打包及查看
 devtools::build("D:/ProgramData/MyRPackage/corr")
-
 library(corr)
 help(corr)
 data(dat)
@@ -57,30 +56,4 @@ data(dat)
 dim(dat)
 path = system.file("extdata","example.csv",package="corr")
 read.csv(path,header=T)
-
-#------------------------------------------------
-usethis::create_package(path="D:/ProgramData/MyRPackage/rPackageTutorial")
-
-renv::init()
-renv::snapshot()
-
-usethis::use_package(package = "renv", type = "Suggests")
-
-usethis::use_readme_rmd()
-
-file.create("R/add.R")
-add<-function(a,b) {
-  return(a+b)
-}
-
-devtools::document()
-
-styler::style_pkg()
-lintr::lint_package()
-
-usethis::use_github_action("lint")
-
-usethis::use_testthat()
-usethis::use_test("add.R")
-
 

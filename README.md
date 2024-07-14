@@ -4,6 +4,10 @@
 # corr
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/lv-lf/corr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/lv-lf/corr/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/lv-lf/corr/branch/main/graph/badge.svg)](https://app.codecov.io/gh/lv-lf/corr?branch=main)
 <!-- badges: end -->
 
 The goal of corr is to compute the correlation of x and y if these are

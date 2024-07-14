@@ -33,8 +33,6 @@ devtools::install_github("lv-lf/corr")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
-
 ```{r example}
 library(corr)
 x <- 1:5
@@ -48,7 +46,7 @@ plot(x, y)
 ```{r}
 data(dat)
 dim(dat)
-path = system.file("extdata","example.csv",package="corr")
-read.csv(path,header=T)
+path <- system.file("extdata", "example.csv", package = "corr")
+read.csv(path, header = T)
 ```
 
