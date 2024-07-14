@@ -25,30 +25,26 @@ The goal of corr is to compute the correlation of x and y if these are vectors.
 You can install the development version of corr like so:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+# install.packages("devtools")
+devtools::install_github("lv-lf/corr")
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
-
 ```{r example}
 library(corr)
-## basic example code
+x <- 1:5
+y <- c(3, 5, 8, 9, 13)
+corr1(x, y)
+corr2(x, y)
+cor(x, y)
+plot(x, y)
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
+```{r}
+data(dat)
+dim(dat)
+path <- system.file("extdata", "example.csv", package = "corr")
+read.csv(path, header = T)
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
